@@ -6,7 +6,7 @@
 /*   By: lcoreen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:12:46 by lcoreen           #+#    #+#             */
-/*   Updated: 2021/10/20 12:43:31 by lcoreen          ###   ########.fr       */
+/*   Updated: 2021/10/21 17:52:13 by lcoreen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_putstr(char *s)
 
 	len = 0;
 	if (s == 0)
-		return (0);
+		return (ft_putstr("(null)"));
 	while (s[len] != '\0')
 		len++;
 	write(1, s, len);

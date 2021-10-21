@@ -6,12 +6,12 @@
 /*   By: lcoreen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 11:36:11 by lcoreen           #+#    #+#             */
-/*   Updated: 2021/10/20 13:28:50 by lcoreen          ###   ########.fr       */
+/*   Updated: 2021/10/21 17:22:26 by lcoreen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "libprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
@@ -37,6 +37,10 @@ int	ft_printf(const char *format, ...)
 				res += ft_putnbr_unsigned(va_arg(ap, unsigned int));
 			else if (*format == '%')
 				res += ft_putchar('%');
+			else if (*format == 'x' || *format == 'X')
+				res += ft_putnbr_hex(va_arg(ap, unsigned int), *format);
+			else if (*format == 'p')
+				res += ft_putpointer(va_arg(ap, unsigned long long));
 		}
 		else
 			res += ft_putchar(*format);

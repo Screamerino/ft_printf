@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcoreen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 12:13:31 by lcoreen           #+#    #+#             */
-/*   Updated: 2021/10/21 17:22:54 by lcoreen          ###   ########.fr       */
+/*   Created: 2021/10/21 13:58:15 by lcoreen           #+#    #+#             */
+/*   Updated: 2021/10/21 17:23:11 by lcoreen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n)
+static char	get_ch(int index, char mode)
 {
-	int	flag;
+	if (index >= 0 && index <= 9)
+		return (index + '0');
+	else if (mode == 'X')
+		return ('A' + index - 10);
+	else if (mode == 'x')
+		return ('a' + index - 10);
+	else
+		return (0);
+}
+
+int			ft_putnbr_hex(unsigned long long n, char mode)
+{
 	int	len;
 
-	flag = 1;
 	len = 0;
-	if (n < 0)
+	if (n / 16 != 0)
 	{
-		len += ft_putchar('-');
-		flag = -1;
-	}
-	if (n / 10 != 0)
-	{
-		len += ft_putnbr((n / 10) * flag);
-		len += ft_putchar((n % 10) * flag + '0');
+		len += ft_putnbr_hex(n / 16, mode);
+		len += ft_putchar(get_ch(n % 16, mode));
 	}
 	else
-		len += ft_putchar(n * flag + '0');
+		len += ft_putchar(get_ch(n, mode));
 	return (len);
 }

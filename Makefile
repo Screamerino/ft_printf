@@ -1,11 +1,12 @@
-NAME		=	libprintf.a
+NAME		=	libftprintf.a
 
 SRC_PATH 	=	src
 SRC			=	src/ft_putchar.c src/ft_putstr.c src/ft_putnbr.c\
-				src/ft_printf.c  src/ft_putnbr_unsigned.c
+				src/ft_printf.c  src/ft_putnbr_unsigned.c\
+				src/ft_putnbr_hex.c src/ft_putpointer.c
 
 INCLUDE 	=	includes/
-HEADER		= 	libprintf.h
+HEADER		= 	ft_printf.h
 OBJ			=	${SRC:%.c=%.o}
 
 CC			=	gcc
