@@ -6,7 +6,7 @@
 /*   By: lcoreen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:58:15 by lcoreen           #+#    #+#             */
-/*   Updated: 2021/10/21 17:23:11 by lcoreen          ###   ########.fr       */
+/*   Updated: 2021/10/22 12:58:31 by lcoreen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	get_ch(int index, char mode)
 		return (0);
 }
 
-int			ft_putnbr_hex(unsigned long long n, char mode)
+int	ft_putnbr_hex(unsigned int n, char mode)
 {
 	int	len;
 
